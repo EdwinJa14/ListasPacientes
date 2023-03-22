@@ -16,10 +16,10 @@ import javax.swing.JOptionPane;
 public class ListasPacientesMModell {
     
     Queue<Pacientes> ListaPacientes1=new LinkedList();
-    public void EncolarPacientes1(String Apellidos,String Nombre,String Edad){
+    public void EncolarPacientes2(String Apellidos,String Nombre,String Edad){
         Pacientes nuevoPaciente=new  Pacientes(Apellidos, Nombre, Edad);
         this.ListaPacientes1.add(nuevoPaciente);
-        JOptionPane.showMessageDialog(null,"Usted  Ha Sido  Registrodo Y Asignado");
+        JOptionPane.showMessageDialog(null,"Usted  Ha Sido  Registrodo Y Asignado a Mendez");
         
     }
     
@@ -27,6 +27,6 @@ public class ListasPacientesMModell {
         return this.ListaPacientes1;
     }
     public void DesEncolar(){
-        this.ListaPacientes1.poll();
+       // this.ListaPacientes1.poll();
     }
 }

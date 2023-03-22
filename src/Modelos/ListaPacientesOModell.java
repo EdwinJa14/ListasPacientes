@@ -15,18 +15,18 @@ import javax.swing.JOptionPane;
  */
 public class ListaPacientesOModell {
        
-    Queue<Pacientes> ListaPacientes1=new LinkedList();
-    public void EncolarPacientes1(String Apellidos,String Nombre,String Edad){
+    Queue<Pacientes> ListaPacientes2=new LinkedList();
+    public void EncolarPacientes2(String Apellidos,String Nombre,String Edad){
         Pacientes nuevoPaciente=new  Pacientes(Apellidos, Nombre, Edad);
-        this.ListaPacientes1.add(nuevoPaciente);
-        JOptionPane.showMessageDialog(null,"Usted  Ha Sido  Registrodo Y Asignado");
+        this.ListaPacientes2.add(nuevoPaciente);
+        JOptionPane.showMessageDialog(null,"Usted  Ha Sido  Registrodo Y Asignado a Dr Oto");
         
     }
     
     public Queue ListarPacientes(){
-        return this.ListaPacientes1;
+        return this.ListaPacientes2;
     }
     public void DesEncolar(){
-        this.ListaPacientes1.poll();
+        //this.ListaPacientes1.poll();
     }
 }

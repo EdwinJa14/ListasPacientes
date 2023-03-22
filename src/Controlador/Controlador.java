@@ -36,16 +36,16 @@ ListasPacientesMModell ModeloP2;
         this.VistaLista.btnAtenderO.addActionListener(this);
         
         //Levantar formulario
-        this.VistaLista.setLocationRelativeTo(null);
-        this.VistaLista.setVisible(true);
+        this.VistaPacientes.setLocationRelativeTo(null);
+        this.VistaPacientes.setVisible(true);
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==this.VistaPacientes.btnAsignarM)
+        if(e.getSource()==this.VistaPacientes.btnAsignarO)
         {
-            this.ModeloP1.EncolarPacientes1(this.VistaPacientes.txtApellidos.getText(),this.VistaPacientes.txtNombre.getText(),
+            this.ModeloP1.EncolarPacientes2(this.VistaPacientes.txtApellidos.getText(),this.VistaPacientes.txtNombre.getText(),
                     this.VistaPacientes.txtEdad.getText());
             Queue<Pacientes>listaLocal = this.ModeloP1.ListarPacientes();
             String Cadena = "";
@@ -54,22 +54,23 @@ ListasPacientesMModell ModeloP2;
                 Cadena = Cadena + MiListaPacientes.getApellidos()+" "+MiListaPacientes.getNombre()+" "+MiListaPacientes.getEdad()+"\n";
             }
             
-            this.VistaLista.txtListaMendez.setText(Cadena);
-            this.VistaPacientes.txtApellidos.setText("");
+            this.VistaLista.txtListaOto.setText(Cadena);
+           this.VistaPacientes.txtApellidos.setText("");
             this.VistaPacientes.txtNombre.setText("");
             this.VistaPacientes.txtEdad.setText(""); 
             
         }
         
-         if(e.getSource()==this.VistaPacientes.btnAsignarO)
+         if(e.getSource()==this.VistaPacientes.btnAsignarM)
         {
-            this.ModeloP2.EncolarPacientes1(this.VistaPacientes.txtApellidos.getText(),this.VistaPacientes.txtNombre.getText(),
+            this.ModeloP2.EncolarPacientes2(this.VistaPacientes.txtApellidos.getText(),this.VistaPacientes.txtNombre.getText(),
                     this.VistaPacientes.txtEdad.getText());
             Queue<Pacientes>listaLocal = this.ModeloP2.ListarPacientes();
             String Cadena = "";
             for(Pacientes MiListaPacientes: listaLocal)
             {
                 Cadena = Cadena + MiListaPacientes.getApellidos()+" "+MiListaPacientes.getNombre()+" "+MiListaPacientes.getEdad()+"\n";
+                
             }
             
             this.VistaLista.txtListaMendez.setText(Cadena);

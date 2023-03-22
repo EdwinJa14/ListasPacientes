@@ -9,6 +9,7 @@ import Controlador.Controlador;
 import Modelos.ListaPacientesOModell;
 import Modelos.ListasPacientesMModell;
 import Vistas.frmIngresarPacientes;
+import Vistas.frmPacientes;
 
 /**
  *
@@ -22,10 +23,11 @@ public class main {
     public static void main(String[] args) {
         // TODO code application logic here
         frmIngresarPacientes VistaIngresarP=new frmIngresarPacientes(null,true);
-        frmPacientes VistaPacientes=new frmPacientes();
+        frmPacientes VistaPacientes=new frmPacientes(null,true);
         ListaPacientesOModell ModeloPO=new ListaPacientesOModell();
         ListasPacientesMModell ModeloPM=new  ListasPacientesMModell();
-        Controlador  Controller=new Controlador(VistaIngresarP,VistaPacientes,ModeloPO,ModeloPM) ;
+        Controlador  Control=new Controlador(VistaIngresarP,VistaPacientes,
+                ModeloPO,ModeloPM) ;
     }
     
 }
