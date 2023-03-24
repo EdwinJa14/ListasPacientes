@@ -19,7 +19,7 @@ public class ListaPacientesOModell {
     public void EncolarPacientes2(String Apellidos,String Nombre,String Edad){
         Pacientes nuevoPaciente=new  Pacientes(Apellidos, Nombre, Edad);
         this.ListaPacientes2.add(nuevoPaciente);
-        JOptionPane.showMessageDialog(null,"Usted  Ha Sido  Registrodo Y Asignado a Dr Oto");
+        //JOptionPane.showMessageDialog(null,"Usted  Ha Sido  Registrodo Y Asignado a Dr Oto");
         
     }
     
@@ -27,6 +27,6 @@ public class ListaPacientesOModell {
         return this.ListaPacientes2;
     }
     public void DesEncolar(){
-        //this.ListaPacientes1.poll();
+        this.ListaPacientes2.poll();
     }
 }

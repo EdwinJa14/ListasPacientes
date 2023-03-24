@@ -13,16 +13,17 @@ import Vistas.frmPacientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Queue;
+import javax.swing.JOptionPane;
 
  public class Controlador implements ActionListener {
 frmIngresarPacientes VistaPacientes;
 frmPacientes VistaLista;
-ListaPacientesOModell ModeloP1;
-ListasPacientesMModell ModeloP2;
+ListaPacientesOModell ModeloP2;
+ListasPacientesMModell ModeloP1;
 
 
-    public Controlador(frmIngresarPacientes VistaPacientes, frmPacientes VistaLista,ListaPacientesOModell ModeloP1,
-            ListasPacientesMModell ModeloP2) {
+    public Controlador(frmIngresarPacientes VistaPacientes, frmPacientes VistaLista,ListaPacientesOModell ModeloP2,
+            ListasPacientesMModell ModeloP1) {
         this.VistaPacientes = VistaPacientes;
         this.VistaLista = VistaLista;
         this.ModeloP2 = ModeloP2;
@@ -45,7 +46,7 @@ ListasPacientesMModell ModeloP2;
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==this.VistaPacientes.btnAsignarO)
         {
-            this.ModeloP1.EncolarPacientes2(this.VistaPacientes.txtApellidos.getText(),this.VistaPacientes.txtNombre.getText(),
+            this.ModeloP1.EncolarPacientes1(this.VistaPacientes.txtApellidos.getText(),this.VistaPacientes.txtNombre.getText(),
                     this.VistaPacientes.txtEdad.getText());
             Queue<Pacientes>listaLocal = this.ModeloP1.ListarPacientes();
             String Cadena = "";
@@ -58,7 +59,8 @@ ListasPacientesMModell ModeloP2;
            this.VistaPacientes.txtApellidos.setText("");
             this.VistaPacientes.txtNombre.setText("");
             this.VistaPacientes.txtEdad.setText(""); 
-            
+                    JOptionPane.showMessageDialog(null,"Usted  Ha Sido  Registrodo Y Asignado a Dr Oto");
+
         }
         
          if(e.getSource()==this.VistaPacientes.btnAsignarM)
@@ -77,7 +79,8 @@ ListasPacientesMModell ModeloP2;
             this.VistaPacientes.txtApellidos.setText("");
             this.VistaPacientes.txtNombre.setText("");
             this.VistaPacientes.txtEdad.setText(""); 
-            
+                    JOptionPane.showMessageDialog(null,"Usted  Ha Sido  Registrodo Y Asignado a Mendez");
+
         }
          
          
@@ -90,11 +93,32 @@ ListasPacientesMModell ModeloP2;
         
         if(e.getSource()==this.VistaLista.btnAtenderM)
         {
+             
+                this.ModeloP1.DesEncolar();
+                this.ModeloP1.EncolarPacientes1(this.VistaPacientes.txtApellidos.getText(),
+                        this.VistaPacientes.txtNombre.getText(),this.VistaPacientes.txtEdad.getText());
+                Queue <Pacientes> listaLocal = this.ModeloP1.ListarPacientes();
+                String Cadena="";
+                for(Pacientes MiListaCliente: listaLocal){
+                    Cadena=Cadena+MiListaCliente.getApellidos()+" "+MiListaCliente.getNombre()+"\n";
+               }
+                this.VistaLista.txtListaMendez.setText(Cadena);
+                JOptionPane.showMessageDialog(null, "Cliente Atendido");
           
         }
          if(e.getSource()==this.VistaLista.btnAtenderO)
         {
           
+                this.ModeloP2.DesEncolar();
+                this.ModeloP2.EncolarPacientes2(this.VistaPacientes.txtApellidos.getText(),
+                        this.VistaPacientes.txtNombre.getText(),this.VistaPacientes.txtEdad.getText());
+                Queue <Pacientes> listaLocal = this.ModeloP2.ListarPacientes();
+                String Cadena="";
+                for(Pacientes MiListaCliente: listaLocal){
+                    Cadena=Cadena+MiListaCliente.getApellidos()+" "+MiListaCliente.getNombre()+"\n";
+               }
+                this.VistaLista.txtListaOto.setText(Cadena);
+                JOptionPane.showMessageDialog(null, "Cliente Atendido");
         }
     }
     
